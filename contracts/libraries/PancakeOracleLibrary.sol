@@ -1,7 +1,11 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity >=0.5.0;
 
-import '@uniswap/v2-core/contracts/interfaces/IPancakePair.sol';
-import '@uniswap/lib/contracts/libraries/FixedPoint.sol';
+// import '@uniswap/v2-core/contracts/interfaces/IPancakePair.sol';
+// import '@uniswap/lib/contracts/libraries/FixedPoint.sol';
+import "../interfaces/IPancakePair.sol";
+import "./FixedPoint.sol";
 
 // library with helper methods for oracles that are concerned with computing average prices
 library PancakeOracleLibrary {

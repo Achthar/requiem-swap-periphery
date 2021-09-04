@@ -1,6 +1,10 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity >=0.5.0;
 
-import '@uniswap/v2-core/contracts/interfaces/IPancakePair.sol';
+// import '@uniswap/v2-core/contracts/interfaces/IPancakePair.sol';
+import "../interfaces/IPancakePair.sol";
+
 
 import "./SafeMath.sol";
 
