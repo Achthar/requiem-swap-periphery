@@ -2,7 +2,7 @@
 
 pragma solidity =0.6.6;
 
-import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
+import './libraries/TransferHelper.sol';
 
 import './interfaces/IPancakeMigrator.sol';
 import './interfaces/V1/IUniswapV1Factory.sol';

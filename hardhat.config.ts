@@ -13,6 +13,8 @@ import 'hardhat-spdx-license-identifier';
 import '@typechain/hardhat';
 import 'hardhat-watcher';
 import 'solidity-coverage';
+// import {accounts} from './utils/networks';
+
 //import './tasks';
 import * as dotenv from 'dotenv';
 
@@ -25,11 +27,11 @@ const accounts = {
   mnemonic:
     process.env.MNEMONIC ||
     'test test test test test test test test test test test junk',
-  // accountsBalance: "990000000000000000000",
+   accountsBalance: "990000000000000000000",
 };
 
 const pk: string = process.env.PRIVATE_KEY || '';
-
+const pk_local: string = process.env.PRIVATE_KEY_LOCAL || '';
 const config: HardhatUserConfig = {
   abiExporter: {
     path: './abi',
@@ -53,7 +55,8 @@ const config: HardhatUserConfig = {
   },
   namedAccounts: {
     deployer: {
-      default: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
+       default: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B',//'0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
+      localhost: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
       ropsten: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
       'bsc-testnet': '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
       kovan: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
@@ -62,6 +65,7 @@ const config: HardhatUserConfig = {
     dev: {
       // Default to 1
       default: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
+      localhost: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
       // dev address mainnet
       // 1: "",
     },
@@ -74,9 +78,11 @@ const config: HardhatUserConfig = {
       chainId: 1,
     },
     localhost: {
+      url: 'http://localhost:8545',
       live: false,
       saveDeployments: true,
       tags: ['local'],
+      accounts: [pk_local],
     },
     hardhat: {
       forking: {
@@ -191,10 +197,11 @@ const config: HardhatUserConfig = {
       live: true,
       saveDeployments: true,
       tags: ['staging'],
-      gasMultiplier: 2,
+      gasMultiplier: 1,
       accounts: [pk],
-      gas: 4100000,
+      gas: 2100000,
       gasPrice: 10000000000,
+      // blockGasLimit: 900000000,
     },
     heco: {
       url: 'https://http-mainnet.hecochain.com',
