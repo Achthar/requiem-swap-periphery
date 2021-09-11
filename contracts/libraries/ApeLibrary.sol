@@ -3,10 +3,10 @@
 pragma solidity >=0.5.0;
 
 /*
- * ApeSwapFinance 
+ * ApeSwapFinance
  * App:             https://apeswap.finance
- * Medium:          https://medium.com/@ape_swap    
- * Twitter:         https://twitter.com/ape_swap 
+ * Medium:          https://medium.com/@ape_swap
+ * Twitter:         https://twitter.com/ape_swap
  * Telegram:        https://t.me/ape_swap
  * Announcements:   https://t.me/ape_swap_news
  * GitHub:          https://github.com/ApeSwapFinance
@@ -32,7 +32,8 @@ library ApeLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'f4ccce374816856d11f00e4069e7cada164065686fbef53c6167a63ec2fd8c5b' // init code hash
+                //hex'f4ccce374816856d11f00e4069e7cada164065686fbef53c6167a63ec2fd8c5b' // init code hash
+                hex'ecba335299a6693cb2ebc4782e74669b84290b6378ea3a3873c7231a8d7d1074'
             ))));
     }
 

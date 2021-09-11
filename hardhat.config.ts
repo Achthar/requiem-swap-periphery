@@ -315,7 +315,7 @@ const config: HardhatUserConfig = {
     deploy: 'deploy',
     deployments: 'deployments',
     imports: 'imports',
-    sources: 'contracts',
+    sources: 'publish',
     tests: 'test',
   },
   preprocess: {
@@ -342,6 +342,38 @@ const config: HardhatUserConfig = {
             enabled: true,
             runs: 200,
           },
+          evmVersion: 'istanbul',
+        },
+      },
+      {
+        version: '0.4.23',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          evmVersion: 'istanbul',
+        },
+      },
+      {
+        version: '0.6.12',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          evmVersion: 'istanbul',
+        },
+      },
+      {
+        version: '0.5.16',
+
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          evmVersion: 'istanbul',
         },
       },
     ],

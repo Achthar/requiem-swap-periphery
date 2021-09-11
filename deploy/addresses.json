@@ -1,10 +1,10 @@
 {
   "bsc-testnet": {
-    "CAKE": "0x50169864E490253fB3811898977a0738aBcb6c29",
+    "CAKE": "0xa758DBBb1158E8De72b34630E8a067b627852c87",
     "WBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
   },
   "ropsten": {
-    "CAKE": "0x50169864E490253fB3811898977a0738aBcb6c29",
+    "CAKE": "0xa758DBBb1158E8De72b34630E8a067b627852c87",
     "WBNB": "0xae13d989dac2f0debff460ac112a837c89baa7cd"
   }
 }
