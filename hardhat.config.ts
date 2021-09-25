@@ -20,14 +20,14 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-import {HardhatUserConfig} from 'hardhat/types';
-import {removeConsoleLog} from 'hardhat-preprocessor';
+import { HardhatUserConfig } from 'hardhat/types';
+import { removeConsoleLog } from 'hardhat-preprocessor';
 
 const accounts = {
   mnemonic:
     process.env.MNEMONIC ||
     'test test test test test test test test test test test junk',
-   accountsBalance: "990000000000000000000",
+  accountsBalance: "990000000000000000000",
 };
 
 const pk: string = process.env.PRIVATE_KEY || '';
@@ -55,7 +55,7 @@ const config: HardhatUserConfig = {
   },
   namedAccounts: {
     deployer: {
-       default: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B',//'0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
+      default: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B',//'0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
       localhost: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
       ropsten: '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
       'bsc-testnet': '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B', //'0x333132d4FCbe1B7F34198AD545672BbA95c5882b',
@@ -326,15 +326,6 @@ const config: HardhatUserConfig = {
   },
   solidity: {
     compilers: [
-      // {
-      //   version: '0.8.0',
-      //   settings: {
-      //     optimizer: {
-      //       enabled: true,
-      //       runs: 200,
-      //     },
-      //   },
-      // },
       {
         version: '0.6.6',
         settings: {
@@ -352,7 +343,7 @@ const config: HardhatUserConfig = {
             enabled: true,
             runs: 200,
           },
-          evmVersion: 'istanbul',
+          evmVersion: 'byzantium',
         },
       },
       {
