@@ -229,7 +229,7 @@ const config: HardhatUserConfig = {
     },
     fuji: {
       url: 'https://api.avax-test.network/ext/bc/C/rpc',
-      accounts,
+      accounts : [pk],
       chainId: 43113,
       live: true,
       saveDeployments: true,
@@ -315,7 +315,7 @@ const config: HardhatUserConfig = {
     deploy: 'deploy',
     deployments: 'deployments',
     imports: 'imports',
-    sources: 'publish',
+    sources: 'requiem_contracts',
     tests: 'test',
   },
   preprocess: {

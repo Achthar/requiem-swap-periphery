@@ -6,7 +6,7 @@ import {writeFileSync} from 'fs';
 import {task} from 'hardhat/config';
 import '@nomiclabs/hardhat-waffle';
 import * as addresses from './addresses.json';
-import {Address} from 'cluster';
+import { Address } from 'cluster';
 
 // npx hardhat deploy --network bsc-testnet --tags deploy_BSCT --reset
 
@@ -21,61 +21,42 @@ task('accounts', 'Prints the list of accounts', async (args, hre) => {
 });
 
 enum AddressKeys {
-  BSC_TESTNET = 'bsc-testnet',
+  BSC_TESTNET = 'bsc-testnet'
 }
+
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployments, getNamedAccounts, network} = hre;
   const {deploy, execute} = deployments;
-
-  /*
-  const availableNetworks = Object.keys(addresses).map((i) => i as AddressKeys);
+/*
+  const availableNetworks =  Object.keys(addresses).map(i => i as AddressKeys)
   const networkName = availableNetworks.find((i) => i === network.name);
 
-  if (!networkName) throw new Error(`Address Key ${network.name} Not Found`);*/
+  if(!networkName) throw new Error(`Address Key ${network.name} Not Found`) */
 
   const {deployer} = await getNamedAccounts();
   console.log(
     '-----------' + deployer + ' deploys on ' + network.name + '-----------'
   );
-  const token1 = await deploy('Token1', {
+  const requiemRouter = await deploy('RequiemRouter', {
     from: deployer,
-    args: [],
+    args: [
+      '0xf10Bd0dA1f0e69c3334D7F8116C9082746EBC1B4',// factory address
+      '0x9c3c9283d3e44854697cd22d3faa240cfb032889', //WBNB instead of WETH
+    ],
     log: true,
   });
 
-  const token2 = await deploy('Token2', {
-    from: deployer,
-    args: [],
-    log: true,
-  });
-
-  await execute(
-    'Token1',
-    {from: deployer, log: true},
-    'mint_natural',
-    '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B',
-    100000
-  );
-
-  await execute(
-    'Token2',
-    {from: deployer, log: true},
-    'mint_natural',
-    '0x10E38dFfFCfdBaaf590D5A9958B01C9cfcF6A63B',
-    100000
-  );
 
   const contracts = {
-    Token1: token1.address,
-    Token2: token2.address,
+    RequiemRouter: requiemRouter.address,
   };
 
   writeFileSync(
-    'addresses/' + network.name + '/Tokens.json',
+    'deployments/' + network.name + '/swap-periphery.json',
     JSON.stringify(contracts)
   );
 };
 
 export default func;
-func.tags = ['Tokens'];
+func.tags = ['RequiemRouter_Mumbai'];

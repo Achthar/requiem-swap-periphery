@@ -32,7 +32,7 @@ library RequiemLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'ecba335299a6693cb2ebc4782e74669b84290b6378ea3a3873c7231a8d7d1074'
+                hex'197a29e2e90d809812f533e62529432f8e2741455e49d25365a66b4be2a453dd'
             ))));
     }
 
